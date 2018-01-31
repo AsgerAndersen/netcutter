@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" type="text/css" href="parameter_control_board.css">
+    <link rel="stylesheet" href="jquery-ui/jquery-ui.min.css">
+	
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="jquery-ui/external/jquery/jquery.js"></script>
+	<script src="jquery-ui/jquery-ui.min.js"></script>
+    
+    <script src="https://d3js.org/d3.v4.min.js"></script>
+    <script src="https://d3js.org/d3-color.v1.min.js"></script>
+    <script src="https://d3js.org/d3-interpolate.v1.min.js"></script>
+    <script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
+	<script src="https://d3js.org/d3-time.v1.min.js"></script>
+	<script src="https://d3js.org/d3-zoom.v1.min.js"></script>
+	
+	<script type="text/javascript" src="jLouvain-master/jLouvain.js"></script>
+
+    <script type="text/javascript" src="init.js"></script>
+    <script type="text/javascript" src="calculate_graph_seq.js"></script>
+    <script type="text/javascript" src="calculate_graph_functions.js"></script>
+    <script type="text/javascript" src="view_bin.js"></script>
+    <script type="text/javascript" src="visualize_graph_seq.js"></script>
+    <script type="text/javascript" src="visualize_graph_statistics.js"></script>
+    <script type="text/javascript" src="visualize_graph_clustering.js"></script>
+    <script type="text/javascript" src="change_graph_seq_params.js"></script>
+    
+    <script type="text/javascript"> d3.select(window).on('load', init) </script>
+
+    <title>Title</title>
+
+</head>
+
+<body>
+<div id="content">    
+<div id="visualisation" class="section">
+    <div id="visdiv">
+        <div id="vis_wrap">
+			<div id="toggle_communities_div" class="off"></div>
+			<div id="reset_zoom_div">Reset Zoom</div>
+            <div id="reheat_div">
+                <span>Reheat</span>
+            </div>
+			<svg id = "vis" width="800" height="800"/>
+		</div>
+	</div>
+    <div id="control_board">
+        <div class="parameter_div">
+            <div class="parameter_description floaty"> Threshold signal strength: </div>
+            <div id="threshold_value"></div>
+            <div id="threshold_slider" class="slider"></div>
+        </div>
+        <div class="parameter_div">
+            <div class="parameter_description floaty"> Length of each timebin: </div>
+            <div id="binsize_value"></div>
+            <div id="binsize_slider" class="slider"></div>
+        </div>
+        <div class="parameter_div">
+            <div class="parameter_description floaty">Period of time to visualize: &nbsp</div>
+            <span class="floaty">From &nbsp</span>
+            <div id="start_value" class="floaty"></div>
+            <span class="floaty"> &nbsp to &nbsp</span>
+            <div id="end_value"></div>
+            <div id="start_end_slider" class="slider"></div>
+        </div>
+    </div>
+    <div id="stats_on_off_div"></div>
+    <div>
+        <label for="communities_checkbox">Show communities</label>
+        <input type="checkbox" id="communities_checkbox" class="checkbox" onchange="drawCommunities()">
+    </div>
+    <div>
+        <label for="n_communities_checkbox">Number of communities</label>
+        <input type="checkbox" id="n_communities_checkbox" class="checkbox" onchange="drawStats()">
+    </div>
+
+    <div id="stats"></div>
+</div>
+</div>
+
+</body>
+
+</html>
+

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" type="text/css" href="parameter_control_board.css">
+    <link rel="stylesheet" href="jquery-ui/jquery-ui.min.css">
+	
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="jquery-ui/external/jquery/jquery.js"></script>
+	<script src="jquery-ui/jquery-ui.min.js"></script>
+    
+    <script src="https://d3js.org/d3.v4.min.js"></script>
+    <script src="https://d3js.org/d3-color.v1.min.js"></script>
+    <script src="https://d3js.org/d3-interpolate.v1.min.js"></script>
+    <script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
+	<script src="https://d3js.org/d3-time.v1.min.js"></script>
+	<script src="https://d3js.org/d3-zoom.v1.min.js"></script>
+	
+	<script type="text/javascript" src="jLouvain-master/jLouvain.js"></script>
+    
+    <!--
+    <script type="text/javascript" src="calculate_graph_sequence.js"></script>
+    <script type="text/javascript" src="calculate_graph_functions.js"></script>
+    <script type="text/javascript" src="visualize_graph_seq.js"></script>
+    <script type="text/javascript" src="init.js"></script>
+    
+    <script type="text/javascript"> d3.select(window).on('load', init) </script>
+	-->
+    
+  	<script type="text/javascript" src="script.js"></script>
+    <script type="text/javascript" src="tutorial.js"></script>
+    <script type="text/javascript" src="parameter_control_board.js"></script>
+
+    <title>Title</title>
+
+</head>
+
+<body>
+<div id="content">
+<div id="visualisation" class="section">
+    <div id="tutorial_button_div">
+        <button class="ui-button" onclick="tutorial()">Play tutorial</button>
+    </div>
+	<div id="visdiv">
+		<div id="vis_wrap">
+            <div id="toggle_communities_div" class="vis_button off"><span>Grouping</span></div>
+            <div id="community_count_div" class="vis_button"><span></span></div>
+            <div id="community_text_div"><span>Unique groups</span></div>
+            <div id="isolated_count_div" class="vis_button"><span></span></div>
+            <div id="isolated_text_div"><span>Isolated, hidden nodes</span></div>
+            <div id="reset_zoom_div" class="vis_button"><span>Reset zoom</span></div>
+            <div id="reheat_div" class="vis_button"><span>Reheat</span></div>
+            <div id="svg_wrapper">
+                <svg id="vis" width="800" height="800"/>
+            </div>
+		</div>
+        
+        <div id="control_board">
+            <div class="parameter_div">
+                <div class="parameter_description floaty"> Threshold signal strength: </div>
+                <div id="threshold_value"></div>
+                <div id="threshold_slider" class="slider"></div>
+            </div>
+            <div class="parameter_div">
+                <div class="parameter_description floaty"> Threshold number of scans: </div>
+                <div id="n_scans_value"></div>
+                <div id="n_scans_slider" class="slider"></div>
+            </div>
+            <div class="parameter_div">
+                <div class="parameter_description floaty"> Length of each timebin: </div>
+                <div id="binsize_value"></div>
+                <div id="binsize_slider" class="slider"></div>
+            </div>
+            <div class="parameter_div">
+                <div class="parameter_description floaty">Period of time to visualize: &nbsp</div>
+                <span class="floaty">From &nbsp</span>
+                <div id="start_value" class="floaty"></div>
+                <span class="floaty"> &nbsp to &nbsp</span>
+                <div id="end_value"></div>
+                <div id="start_end_slider" class="slider"></div>
+            </div>
+        </div>
+        <!--<button onclick="tutorial();">Tutorial</button>-->
+	</div>
+
+    <div id="secondary_vis">
+        <div id="degree_dist_div"></div>
+        <div id="stats"></div>
+    </div>
+
+</div>
+</div>
+
+</body>
+
+</html>
+
