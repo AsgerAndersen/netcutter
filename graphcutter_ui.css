@@ -1,0 +1,16 @@
+#control_board {
+	display: inline-block;
+	position: relative;
+	padding: 50px;
+	overflow: hidden;
+	border-radius: 20px;
+}
+
+.slider {
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+
+.floaty {
+	float: left;
+}
